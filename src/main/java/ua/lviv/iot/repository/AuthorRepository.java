@@ -8,6 +8,7 @@ import ua.lviv.iot.model.Author;
 import ua.lviv.iot.model.Book;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {

@@ -75,6 +75,12 @@ public class BookController {
         CollectionModel<BookDTO> bookDTOS = bookDTOAssembler.toCollectionModel(books);
         return new ResponseEntity<>(bookDTOS, HttpStatus.OK);
     }
+    @GetMapping("/new")
+    public ResponseEntity<CollectionModel<BookDTO>>findTopNewBooks(){
+        List<Book> books = bookService.findNewBooks();
+        CollectionModel<BookDTO> bookDTOS = bookDTOAssembler.toCollectionModel(books);
+        return new ResponseEntity<>(bookDTOS, HttpStatus.OK);
+    }
 
     @GetMapping("/{id}/reviews")
     public ResponseEntity<CollectionModel<ReviewDTO>> findReviewsByBookId(@PathVariable("id") Long id) {

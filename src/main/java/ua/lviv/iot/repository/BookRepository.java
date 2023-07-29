@@ -20,4 +20,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
              " on book.id=r.book_id order by r.rate DESC LIMIT 5", nativeQuery = true)
      List<Book>findTopRatedBooks();
 
+     @Query(value = "SELECT b FROM Book b where DATEDIFF(NOW(),b.dateOfAddition) <= 14")
+     List<Book>findNewBooks();
+
 }
