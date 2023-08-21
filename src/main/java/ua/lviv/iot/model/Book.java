@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -23,6 +24,8 @@ public class Book {
     private String description;
     private String genre;
     private Double price;
+    @Column(name = "date_of_addition")
+    private Date dateOfAddition;
     @ManyToMany(mappedBy = "books")
     private List<User> user;
     @ManyToOne()

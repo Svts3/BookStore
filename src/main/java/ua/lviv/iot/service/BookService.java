@@ -7,6 +7,7 @@ import ua.lviv.iot.exception.BookNotFoundException;
 import ua.lviv.iot.model.Book;
 import ua.lviv.iot.repository.BookRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,7 +36,12 @@ public class BookService {
         return bookRepository.findTopRatedBooks();
     }
     public Book saveBook(Book book) {
+        book.setDateOfAddition(new Date());
         return bookRepository.save(book);
+    }
+
+    public List<Book>findNewBooks(){
+        return bookRepository.findNewBooks();
     }
 
     public Book updateBook(Long id, Book book) throws BookNotFoundException {
